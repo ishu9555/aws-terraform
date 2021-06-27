@@ -21,7 +21,7 @@ Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopte
 
 ## Prerequisite 
 
-1. `Terraform V-1.0.1` [Download URL] (https://www.terraform.io/downloads.html (Download Terraform))
-2. `AWS Account with Admin access` [Console] (https://aws.amazon.com/console/ (AWS console))
+1. `Terraform V-1.0.1` [Download URL](https://www.terraform.io/downloads.html (Download Terraform))
+2. `AWS Account with Admin access` [Console](https://aws.amazon.com/console/ (AWS console))
  
  
