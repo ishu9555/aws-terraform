@@ -1,29 +1,3 @@
-provider "aws" {
-    region = "ap-south-1"
-    secret_key = var.aws_secret_key
-    access_key = var.aws_access_key
-  
-}
-
-variable "aws_access_key" {
-    description = "AWS sign in access key"  
-}
-
-variable "aws_secret_key" {
-    description = "AWS secret key for sign in to AWS account"
-}
-variable "key_name" {}
-variable "vpc_cidr_block" {}
-variable "env_prefix" {}
-variable "subnet1_cidr_block" {}
-variable "all_cidr" {}
-variable "az1" {}
-variable "az2" {}
-variable "instance_type" {
-	description = "Instance specs"	
-}
-variable "subnet2_cidr_block" {}
-
 # [VPC (subnet)(IG)(RT)(SG(egress,ingress,association_RT)) , EC2 (AMI)(instance)]
 
 ## VPC creation
@@ -239,50 +213,4 @@ resource "aws_instance" "myapp-webserver-instance-2" {
 		"role" = "${var.env_prefix}-webserver-2"
 		"type" = "${var.env_prefix}-nginx-2"
 	}	
-}
-
-
-
-## OUTPUT Info
-
-### VPC ID 
-
-output "myapp_vpc_id" {
-    value = aws_vpc.myapp_vpc.id
-  
-}
-
-### Subnet ID 
-
-output "myapp-subnet1_id" {
-    value = aws_subnet.myapp-subnet1.id
-  
-}
-
-### AMI ID 
-
-output "myapp-ami" {
-	value = data.aws_ami.myapp-ami.id
-}
-
-/*
-output "myapp-webserver-instance-info" {
-	value = aws_instance.myapp-webserver-instance.id	
-}
-*/
-
-### Public IP of first instance 
-
-output "myapp-webserver-instance-1-publicIP" {
-	value = aws_instance.myapp-webserver-instance-1.public_ip
-}
-
-### Public IP of second instance
-
-output "myapp-webserver-instance-2-publicIP" {
-	value = aws_instance.myapp-webserver-instance-2.public_ip
-}
-
-output "lb-dns-name" {
-  value = aws_lb.myapp-lb.dns_name
 }
