@@ -23,5 +23,52 @@ Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopte
 
 1. `Terraform V-1.0.1` [Download URL](https://www.terraform.io/downloads.html (Download Terraform))
 2. `AWS Account with Admin access` [Console](https://aws.amazon.com/console/ (AWS console))
+
+
+## Installation Process 
+
+1. __Terraform Init__
+
+For initiating the terraform to download the plugins as per your provider in this casw `AWS` , execute below command from the directory having `main.tf` and other `.tf*` files.
+
+```bash
+
+terraform init
+
+```
  
- 
+2. __Variables__
+
+Prepare your variable file `terraform.tfvars or *.tfvars`  accordingly as per the variables defined in the `main.tf` file.
+
+3. __Terraform Plan__
+
+For rendering  objects created by the terraform and as a best practice always do a `terraform plan` before applying the config. 
+
+4. __Terraform apply__
+
+Use command `terraform apply` to apply the config.
+
+```bash
+terraform apply
+```
+5. __Terraform state__
+
+To view the list of all objects created by Terraform use `terraform state list` command.
+
+```bash
+terraform state list
+```
+
+## Uninstall/Destroy Objects
+
+- Use `terraform destroy` command for destroying all objects mentioned in congig file. If we want to remove specific object then we can use `terraform destroy -target aws_<resource_name>.<name_mentioned_maintf>`.However it is not the best practice, always try to keep your config file updated as per the infra required. 
+
+```bash
+terraform destroy 
+terraform destroy -target aws_vpc.myapp_vpc ## will delete vpc only
+```
+
+## Extra Information
+
+[X] Refer to [Terraform-AWS documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs (AWS Provider Terraform)) for extra custom configs.
