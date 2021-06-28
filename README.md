@@ -62,7 +62,7 @@ terraform state list
 
 ## Uninstall/Destroy Objects
 
-- Use `terraform destroy` command for destroying all objects mentioned in congig file. If we want to remove specific object then we can use `terraform destroy -target aws_<resource_name>.<name_mentioned_maintf>`.However it is not the best practice, always try to keep your config file updated as per the infra required. 
+- Use `terraform destroy` command for destroying all objects mentioned in config file. If we want to remove specific object then we can use `terraform destroy -target aws_<resource_name>.<name_mentioned_maintf>`.However it is not the best practice, always try to keep your config file updated as per the infra required. 
 
 ```bash
 terraform destroy 
