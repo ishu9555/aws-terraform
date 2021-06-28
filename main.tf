@@ -166,7 +166,7 @@ resource "aws_lb_target_group" "myapp-lb-tg" {
 	vpc_id = aws_vpc.myapp_vpc.id
 	port = 8080
 	protocol = "HTTP"
-	Name = "myapp-lb-tg"
+	name = "myapp-lb-tg"
 	target_type = "instance"
 }
 
