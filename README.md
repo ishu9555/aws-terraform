@@ -71,4 +71,4 @@ terraform destroy -target aws_vpc.myapp_vpc ## will delete vpc only
 
 ## Extra Information
 
-[X] Refer to [Terraform-AWS documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs (AWS Provider Terraform)) for extra custom configs.
+[x] Refer to [Terraform-AWS documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs (AWS Provider Terraform)) for extra custom configs.
