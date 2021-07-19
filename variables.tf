@@ -16,3 +16,8 @@ variable "instance_type" {
 	description = "Instance specs"	
 }
 variable "subnet2_cidr_block" {}
+
+
+variable "region" {
+    default = "ap-south-1"
+}
