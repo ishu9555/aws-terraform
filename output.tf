@@ -41,3 +41,8 @@ output "myapp-webserver-instance-2-publicIP" {
 output "lb-dns-name" {
   value = aws_lb.myapp-lb.dns_name
 }
+
+output "backend-bucket" {
+	value = aws_s3_bucket.backend-bucket.bucket
+  
+}
