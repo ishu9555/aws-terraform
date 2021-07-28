@@ -17,7 +17,7 @@ Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopte
 
 - This project demonstrates the core power of [cloud computing](https://en.wikipedia.org/wiki/Cloud_computing (wiki cloud computing)) and [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code (IAAC wiki)) , within few minutes and with just few lines you could set up a fully enterprise grade IT infra to host your `monolithic` or `microservices` applications.
 
-- With this code you could set up a cluster of 2 [EC2](https://docs.aws.amazon.com/ec2/index.html?nc2=h_ql_doc_ec2 (Amazon EC2)) instances hosting a [nginx](https://www.nginx.com/resources/glossary/nginx/ (Nginx webserver)) [docker container](https://www.docker.com/resources/what-container (docker container)) as webserver  in differnet [Availability Zone](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ (Amazon AZ)) in single region with one [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html (AWS ALB)) in front, distributing the backend traffic with required networking setup. With mading sure that our state files are also get backed up on AWS [S3](https://aws.amazon.com/s3/ (S3)) buckets.  "_Sounds Fun isn't it !!_"
+- With this code you could set up a cluster of 2 [EC2](https://docs.aws.amazon.com/ec2/index.html?nc2=h_ql_doc_ec2 (Amazon EC2)) instances hosting a [nginx](https://www.nginx.com/resources/glossary/nginx/ (Nginx webserver)) [docker container](https://www.docker.com/resources/what-container (docker container)) as webserver  in differnet [Availability Zone](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ (Amazon AZ)) in single region with one [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html (AWS ALB)) in front, distributing the backend traffic with required networking setup. With making sure that our state files are also get backed up on AWS [S3](https://aws.amazon.com/s3/ (S3)) buckets.  "_Sounds Fun isn't it !!_"
 
 ## Prerequisite 
 
@@ -27,17 +27,18 @@ Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopte
 
 ## Installation Process 
 
-1. __Creation of Backend bucket__
+1.  __Creation of Backend bucket__
 
 Change directory to `remote-state` and perform below tasks.
 
 ```bash
 cd remote-state
 terraform init
-terraform apply --auto-approve
+terraform plan
+terraform apply 
 ```
 
-1. __Terraform Init__
+2. __Terraform Init__
 
 To work on our main config move out of `remote-state` dir.
 For initiating the terraform to download the plugins as per your provider in this case `AWS` , execute below command from the directory having `main.tf` and other `.tf*` files.
@@ -48,15 +49,15 @@ terraform init
 
 ```
  
-2. __Variables__
+3. __Variables__
 
 Prepare your variable file `terraform.tfvars or *.tfvars`  accordingly as per the variables defined in the `main.tf` file.
 
-3. __Terraform Plan__
+4. __Terraform Plan__
 
 For rendering  objects created by the terraform and as a best practice always do a `terraform plan` before applying the config. 
 
-4. __Terraform apply__
+5. __Terraform apply__
 
 Use command `terraform apply` to apply the config.
 
@@ -64,7 +65,7 @@ Use command `terraform apply` to apply the config.
 terraform apply
 ```
 
-5. __Terraform state__
+6. __Terraform state__
 
 To view the list of all objects created by Terraform use `terraform state list` command.
 
