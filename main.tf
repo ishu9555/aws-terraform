@@ -186,7 +186,7 @@ resource "aws_instance" "myapp-webserver-instance-1" {
 	vpc_security_group_ids = [aws_security_group.myapp-security-group.id]
 	subnet_id = aws_subnet.myapp-subnet1.id
 	key_name = var.key_name
-	associate_public_ip_address = true
+	associate_public_ip_address = false
 	user_data = file("run-script.sh")
 	tags = {
 		"Name" = "${var.env_prefix}-webserver-instance-1"
@@ -205,7 +205,7 @@ resource "aws_instance" "myapp-webserver-instance-2" {
 	vpc_security_group_ids = [aws_security_group.myapp-security-group.id]
 	subnet_id = aws_subnet.myapp-subnet2.id
 	key_name = var.key_name
-	associate_public_ip_address = true
+	associate_public_ip_address = false
 	user_data = file("run-script.sh")
 
 	tags = {
