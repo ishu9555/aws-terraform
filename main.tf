@@ -188,6 +188,9 @@ resource "aws_instance" "myapp-webserver-instance-1" {
 	key_name = var.key_name
 	associate_public_ip_address = true
 	user_data = file("run-script.sh")
+	lifecycle {
+    	create_before_destroy = true
+    }
 	tags = {
 		"Name" = "${var.env_prefix}-webserver-instance-1"
 		"role" = "${var.env_prefix}-webserver-1"
@@ -207,6 +210,9 @@ resource "aws_instance" "myapp-webserver-instance-2" {
 	key_name = var.key_name
 	associate_public_ip_address = true
 	user_data = file("run-script.sh")
+	lifecycle {
+    	create_before_destroy = true
+    }
 
 	tags = {
 		"Name" = "${var.env_prefix}-webserver-instance-2"
