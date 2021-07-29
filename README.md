@@ -85,4 +85,5 @@ terraform destroy -target aws_vpc.myapp_vpc ## will delete vpc only
 ## Extra Information
 
 [x] Refer to [Terraform-AWS documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs (AWS Provider Terraform)) for extra custom configs.
+</br>
 [x] As for backend terraform configuration bucket should be already existing in our infra. We have created a dedicated directory `remote-state` with config for bucket provisioning.
