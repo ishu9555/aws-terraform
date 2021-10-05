@@ -7,13 +7,6 @@ output "myapp_vpc_id" {
   
 }
 
-### Subnet ID 
-
-output "myapp-subnet1_id" {
-    value = aws_subnet.myapp-subnet1.id
-  
-}
-
 ### AMI ID 
 
 output "myapp-ami" {
