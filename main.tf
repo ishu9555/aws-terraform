@@ -15,12 +15,12 @@ resource "aws_vpc" "myapp_vpc" {
 module "subnet" {
 	source = "./subnets"
 
-	subnet1_cidr_block  = "10.0.10.0/24"
-	subnet2_cidr_block  = "10.0.30.0/24"
-	vpc_id			        = aws_vpc.myapp_vpc.id
-  az1                 = "ap-south-1a"
-  az2                 = "ap-south-1b"
-  env_prefix          = "dev"
+	subnet1_cidr_block  = var.subnet1_cidr_block
+	subnet2_cidr_block  = var.subnet2_cidr_block
+	vpc_id			    = aws_vpc.myapp_vpc.id
+	az1                 = "ap-south-1a"
+	az2                 = "ap-south-1b"
+	env_prefix          = "dev"
 
   
 }
