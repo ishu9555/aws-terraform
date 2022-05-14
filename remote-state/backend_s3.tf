@@ -1,7 +1,7 @@
 provider "aws" {
-    region = var.region
-    secret_key = var.aws_secret_key
-    access_key = var.aws_access_key
+  region     = var.region
+  secret_key = var.aws_secret_key
+  access_key = var.aws_access_key
 }
 
 variable "env_prefix" {
@@ -10,30 +10,30 @@ variable "env_prefix" {
 
 variable "region" {
   default = "ap-south-1"
-  
+
 }
 
-variable "aws_access_key" {  
+variable "aws_access_key" {
 }
 
-variable "aws_secret_key" {  
+variable "aws_secret_key" {
 }
 
 
 resource "aws_s3_bucket" "backend-bucket" {
-    bucket = "${var.env_prefix}-backend-tf-s3-bucket"
-    acl = "private"
+  bucket = "${var.env_prefix}-backend-tf-s3-bucket"
+  acl    = "private"
 
-    versioning {
-        enabled = "true"
-    }
-    lifecycle {
+  versioning {
+    enabled = "true"
+  }
+  lifecycle {
     prevent_destroy = true
-    }
+  }
 
-    tags = {
-        Name = "${var.env_prefix}-tf-backend"
-    }  
+  tags = {
+    Name = "${var.env_prefix}-tf-backend"
+  }
 }
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
@@ -49,6 +49,6 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
 }
 
 output "backend-bucket" {
-	value = aws_s3_bucket.backend-bucket.bucket
-  
+  value = aws_s3_bucket.backend-bucket.bucket
+
 }
